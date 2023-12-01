@@ -8,8 +8,6 @@ public final class Prayer {
     private Prayer() {
     }
 
-    private int prayerBook;
-
     /**
      * Checks if the Quick Prayer toggle is active.
      *
