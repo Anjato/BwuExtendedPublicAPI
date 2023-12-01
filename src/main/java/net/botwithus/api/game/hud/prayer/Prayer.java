@@ -8,6 +8,12 @@ public final class Prayer {
     private Prayer() {
     }
 
+    public enum PrayerBook {
+        NULL,
+        Normal,
+        Curses
+    }
+
     /**
      * Checks if the Quick Prayer toggle is active.
      *
@@ -51,7 +57,15 @@ public final class Prayer {
      *
      * @return the player's prayer book (0 = Normal, 1 = Curses)
      */
-    public static int getPrayerBook() { return VarManager.getVarbitValue(16789); }
+    public static PrayerBook getPrayerBook() {
+        int prayerBookEquipped = VarManager.getVarbitValue(16789);
+
+        return switch (prayerBookEquipped) {
+            case 0 -> PrayerBook.Normal;
+            case 1 -> PrayerBook.Curses;
+            default -> PrayerBook.NULL;
+        };
+    }
 
 //    /**
 //     * Checks if the given {@link PrayerAbility} is active.
