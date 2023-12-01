@@ -46,6 +46,13 @@ public final class Prayer {
         return Skills.PRAYER.getActualLevel() * 10;
     }
 
+    /**
+     * Returns the player's prayer book (0 = Normal, 1 = Curses)
+     *
+     * @return the player's prayer book (0 = Normal, 1 = Curses)
+     */
+    public static int getPrayerBook() { return VarManager.getVarbitValue(16789); }
+
 //    /**
 //     * Checks if the given {@link PrayerAbility} is active.
 //     *
