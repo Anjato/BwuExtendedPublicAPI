@@ -9,9 +9,8 @@ public final class Prayer {
     }
 
     public enum PrayerBook {
-        NULL,
-        Normal,
-        Curses
+        NORMAL,
+        CURSES
     }
 
     /**
@@ -53,17 +52,17 @@ public final class Prayer {
     }
 
     /**
-     * Returns the player's prayer book (0 = Normal, 1 = Curses)
+     * Returns the player's current prayer book
      *
-     * @return the player's prayer book (0 = Normal, 1 = Curses)
+     * @return the player's current prayer book
      */
-    public static PrayerBook getPrayerBook() {
+    public static PrayerBook getCurrentBook() {
         int prayerBookEquipped = VarManager.getVarbitValue(16789);
 
         return switch (prayerBookEquipped) {
-            case 0 -> PrayerBook.Normal;
-            case 1 -> PrayerBook.Curses;
-            default -> PrayerBook.NULL;
+            case 0 -> PrayerBook.NORMAL;
+            case 1 -> PrayerBook.CURSES;
+            default -> null;
         };
     }
 
